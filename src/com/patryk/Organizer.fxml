@@ -17,14 +17,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.patryk.OrganizerController">
    <children>
       <MenuBar layoutX="-3.0" layoutY="4.0" prefHeight="25.0" prefWidth="1024.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Lists Manager" />
-                  <MenuItem mnemonicParsing="false" text="Notebook" />
+                  <MenuItem mnemonicParsing="false" text="Lists Manager" 
+                  			onAction="#handleListManagerMenuItemAction" />
+                  <MenuItem mnemonicParsing="false" text="Notebook"
+                  			onAction="#handleNotebookMenuItemAction" />
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
@@ -36,9 +39,9 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutX="-1.0" layoutY="29.0" prefHeight="547.0" prefWidth="1024.0">
+      <TabPane layoutX="-1.0" layoutY="29.0" prefHeight="547.0" prefWidth="1024.0" fx:id="tabPane">
          <tabs>
-            <Tab text="Lists Manager">
+            <Tab text="Lists Manager" fx:id="listManagerTab">
                <content>
                   <SplitPane dividerPositions="0.2607421875" prefHeight="160.0" prefWidth="200.0">
                     <items>
@@ -48,8 +51,8 @@
                                  <contextMenu>
                                     <ContextMenu>
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Create new list" />
-                                          <MenuItem mnemonicParsing="false" text="Delete this list" />
+                                        <MenuItem mnemonicParsing="false" text="Create new list" onAction="#handleCreateListAction"/>
+                                          <MenuItem mnemonicParsing="false" text="Delete this list" onAction="#handleDeleteListAction" />
                                       </items>
                                     </ContextMenu>
                                  </contextMenu></TreeView>
@@ -69,7 +72,7 @@
                   </SplitPane>
                </content>
             </Tab>
-            <Tab text="Notebook">
+            <Tab text="Notebook" fx:id="notebookTab">
                <content>
                   <SplitPane dividerPositions="0.2607421875" prefHeight="160.0" prefWidth="200.0">
                     <items>
@@ -79,8 +82,8 @@
                                  <contextMenu>
                                     <ContextMenu>
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Create new note" />
-                                          <MenuItem mnemonicParsing="false" text="Delete this note" />
+                                        <MenuItem mnemonicParsing="false" text="Create new note" onAction="#handleCreateNoteAction" />
+                                          <MenuItem mnemonicParsing="false" text="Delete this note" onAction="#handleDeleteNoteAction" />
                                       </items>
                                     </ContextMenu>
                                  </contextMenu></TreeView>
